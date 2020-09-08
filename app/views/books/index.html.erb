@@ -1,0 +1,41 @@
+<h2>Books</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col"><strong>Title</strong></div>
+        <div class="col"><strong>Subtitle</strong></div>
+        <div class="col"><strong>Description</strong></div>
+        <!--
+        <div class="col"><strong>Publisher</strong></div>
+        <div class="col"><strong>Format</strong></div>
+        <div class="col"><strong>Price</strong></div>
+        <div class="col"><strong>Pages</strong></div>
+        <div class="col"><strong>Notes</strong></div>
+        -->
+        <div class="col"><strong>Actions</strong></div>
+    <% @books.each do |book| %>
+        <div class="w-100"></div>
+        <div class="col"><%= book.title %></div>
+        <div class="col"><%= book.subtitle %></div>
+        <div class="col"><%= book.description %></div>
+        <!--
+        <div class="col"><%= book.publisher %></div>
+        <div class="col"><%= book.format %></div>
+        <div class="col"><%= book.price %></div>
+        <div class="col"><%= book.pages %></div>
+        <div class="col"><%= book.notes %></div>
+        -->
+        <div class="col">
+            <%= link_to 'Show', book_path(book) %>
+            <%= link_to 'Edit', edit_book_path(book) %>
+            <%= link_to 'Delete', book_path(book),
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %>
+        </div>
+    <% end %>
+        <div class="w-100"></div>
+        <div class="col-12">&nbsp;</div>
+        <div class="w-100"></div>
+        <div class="col-12"><%= link_to 'New Book', new_book_path %></div>
+    </div>
+</div>
